@@ -40,7 +40,7 @@ namespace EAgenda.Dominio
 
         public bool ValidarContatos()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void AdicionarItem(ItemContato item)
