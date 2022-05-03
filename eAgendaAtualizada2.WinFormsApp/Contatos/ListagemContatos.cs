@@ -41,8 +41,17 @@ namespace EAgenda.WinApp
 
             if (resultado == DialogResult.OK)
             {
-                repositorioContato.Inserir(tela.Contato);
-                CarregarContatos();
+                if (tela.Contato.ValidarContatos() == false)
+                {
+                    MessageBox.Show("O seu telefone extrapolou o limite de numero, ou seu email é inválido!",
+                "Inserir Contatos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    repositorioContato.Inserir(tela.Contato);
+                    CarregarContatos();
+                }
             }
         }
 

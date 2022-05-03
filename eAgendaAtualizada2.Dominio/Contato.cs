@@ -31,11 +31,16 @@ namespace EAgenda.Dominio
         public string Empresa { get; set; }
         public string Cargo { get; set; }
         public DateTime? DataCadastro { get; set; }
-
+        public bool ok;
         public override string ToString()
         {
             return $"Número: {Numero}, Nome: {Nome}, Email: {Email}, " +
                 $"Telefone: {Telefone}, Empresa: {Empresa}, Cargo: {Cargo}";
+        }
+
+        public bool ValidarContatos()
+        {
+            throw new NotImplementedException();
         }
 
         public void AdicionarItem(ItemContato item)

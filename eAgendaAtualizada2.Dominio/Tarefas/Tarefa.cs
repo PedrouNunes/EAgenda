@@ -73,7 +73,7 @@ namespace EAgenda.Dominio
         }
         public bool ValidarTarefa()
         {
-            if (Titulo == "")
+            if (String.IsNullOrEmpty(Titulo))
             {
                 return false;
             }
