@@ -71,5 +71,13 @@ namespace EAgenda.Dominio
 
             return Math.Round(percentualConcluido, 2);
         }
+        public bool ValidarTarefa()
+        {
+            if (Titulo == "")
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace EAgenda.WinApp
                 ItemTarefa itemTarefa = new ItemTarefa();
 
                 itemTarefa.Titulo = txtTituloItem.Text;
+                
 
                 listItensTarefa.Items.Add(itemTarefa);
             }

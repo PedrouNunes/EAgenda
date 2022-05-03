@@ -49,8 +49,17 @@ namespace EAgenda.WinApp
 
             if (resultado == DialogResult.OK)
             {
-                repositorioTarefa.Inserir(tela.Tarefa);
-                CarregarTarefas();
+                if (tela.Tarefa.ValidarTarefa() == false)
+                {
+                    MessageBox.Show("Insira um título",
+                "Inserir Tarefas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    repositorioTarefa.Inserir(tela.Tarefa);
+                    CarregarTarefas();
+                }
             }
         }
 
