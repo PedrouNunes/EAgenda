@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eAgendaAtualizada2.Dominio\EAgenda.Dominio.csproj" />
+    <ProjectReference Include="..\eAgendaAtualizada2.Infra.Arquivos\EAgenda.Infra.Arquivos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Compromissos\CadastroContatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Compromissos\ListagemContatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Contatos\CadastroContatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Contatos\ListagemContatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
