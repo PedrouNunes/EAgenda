@@ -31,7 +31,7 @@ namespace EAgenda.Infra.Arquivos
 
             string contatosJson = JsonConvert.SerializeObject(contatos, settings);
 
-      //      File.WriteAllText(arquivoContatos, contatosJson);
+            File.WriteAllText(arquivoContatos, contatosJson);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace EAgenda.Infra.Arquivos
 
             string compromissosJson = JsonConvert.SerializeObject(compromissos, settings);
 
-       //     File.WriteAllText(arquivoCompromissos, compromissosJson);
+           File.WriteAllText(arquivoCompromissos, compromissosJson);
         }
     }
 }

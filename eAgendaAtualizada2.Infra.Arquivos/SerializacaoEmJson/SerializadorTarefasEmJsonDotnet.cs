@@ -31,7 +31,7 @@ namespace EAgenda.Infra.Arquivos
 
             string tarefasJson = JsonConvert.SerializeObject(tarefas, settings);
 
-         //   File.WriteAllText(arquivoTarefas, tarefasJson);
+            File.WriteAllText(arquivoTarefas, tarefasJson);
         }
     }
 }
