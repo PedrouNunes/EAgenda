@@ -47,5 +47,23 @@ namespace EAgenda.Dominio
             if (Itens.Exists(x => x.Equals(item)) == false)
                 itens.Add(item);
         }
+
+        public bool ValidarCompromissos()
+        {
+            if (String.IsNullOrEmpty(Assunto) || String.IsNullOrEmpty(Local) || String.IsNullOrEmpty(DataCompromisso) )
+            {
+                return false;
+            }
+            else
+            {
+                //int horaInicio = Convert.ToInt32(HoraInicio);
+                //int horaFinal = Convert.ToInt32(HoraInicio);
+                //if (horaFinal < horaInicio)
+                //{
+                //    return false;
+                //}
+                return true;
+            }
+        }
     }
 }

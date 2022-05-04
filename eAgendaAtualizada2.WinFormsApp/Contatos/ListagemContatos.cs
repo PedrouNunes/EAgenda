@@ -18,7 +18,6 @@ namespace EAgenda.WinApp
             InitializeComponent();
             CarregarContatos();
         }
-
         public void CarregarContatos()
         {
             List<Contato> contatosCadastrados = repositorioContato.SelecionarTodos();

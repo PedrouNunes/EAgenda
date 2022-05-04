@@ -41,8 +41,19 @@ namespace EAgenda.WinApp
 
             if (resultado == DialogResult.OK)
             {
-                repositorioCompromisso.Inserir(tela.Compromisso);
-                CarregarCompromissos();
+                if (tela.Compromisso.ValidarCompromissos() == true)
+                {
+                    repositorioCompromisso.Inserir(tela.Compromisso);
+                    CarregarCompromissos();
+                }
+                else
+                {
+                    MessageBox.Show("A hora de seu compromisso deve ser antes da hora do final do compromisso, ou você deicou algum campo obrigatório vazio (assunto, local e data do compromisso.)",
+                "Inserir Compromissos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+               
             }
         }
 
