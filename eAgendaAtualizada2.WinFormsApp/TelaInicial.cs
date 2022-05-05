@@ -8,6 +8,8 @@ namespace EAgenda.WinApp
         public TelaInicial()
         {
             InitializeComponent();
+
+            //Iserializador
         }
 
         private void btnTarefas_Click(object sender, EventArgs e)
@@ -15,11 +17,6 @@ namespace EAgenda.WinApp
             ListagemTarefas tela = new ListagemTarefas();
 
             DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                //CarregarTarefas();
-            }
         }
 
         private void btnContatos_Click(object sender, EventArgs e)
@@ -27,11 +24,6 @@ namespace EAgenda.WinApp
             ListagemContatos tela = new ListagemContatos();
 
             DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                //tela.CarregarContatos();
-            }
         }
 
         private void btnCompromissos_Click(object sender, EventArgs e)
@@ -39,11 +31,6 @@ namespace EAgenda.WinApp
             ListagemCompromissos tela = new ListagemCompromissos();
 
             DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                //tela.CarregarContatos();
-            }
         }
     }
 }

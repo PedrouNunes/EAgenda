@@ -5,7 +5,7 @@ using System.Linq;
 namespace EAgenda.Dominio
 {
     [Serializable]
-    public class Contato
+    public class Contato 
     {
         private List<ItemContato> itens = new List<ItemContato>();
 
