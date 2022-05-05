@@ -6,32 +6,31 @@ namespace EAgenda.Infra.Arquivos
 {
     public class RepositorioContatoEmArquivo : IRepositorioContato
     {
-        private readonly ISerializadorContatos serializador;
-        List<Contato> contatos;
+        private readonly ISerializador serializador;
+        private readonly DataContext dataContext;
         private int contador = 0;
-        public RepositorioContatoEmArquivo(ISerializadorContatos serializador)
+        public RepositorioContatoEmArquivo(ISerializador serializador, DataContext dataContext)
         {
             this.serializador = serializador;
+            this.dataContext = dataContext;
 
-            contatos = serializador.CarregarContatosDoArquivo();
-
-            if (contatos.Count > 0)
-                contador = contatos.Max(x => x.Numero);
+            //    contatos = serializador.CarregarContatosDoArquivo();
         }
+
         public List<Contato> SelecionarTodos()
         {
-            return contatos;
+            return dataContext.Contatos;
         }
         public void Inserir(Contato novaContato)
         {
             novaContato.Numero = ++contador;
-            contatos.Add(novaContato);
+            dataContext.Contatos.Add(novaContato);
 
-            serializador.GravarContatosEmArquivo(contatos);
+            serializador.GravarDadosEmArquivo(dataContext);
         }
         public void Editar(Contato contato)
         {
-            foreach (var item in contatos)
+            foreach (var item in dataContext.Contatos)
             {
                 if (item.Numero == contato.Numero)
                 {
@@ -43,13 +42,13 @@ namespace EAgenda.Infra.Arquivos
                     break;
                 }
             }
-            serializador.GravarContatosEmArquivo(contatos);
+            serializador.GravarDadosEmArquivo(dataContext);
         }
         public void Excluir(Contato contato)
         {
-            contatos.Remove(contato);
+           dataContext.Contatos.Remove(contato);
 
-            serializador.GravarContatosEmArquivo(contatos);
+            serializador.GravarDadosEmArquivo(dataContext);
         }
         public void Adicionar(Contato contatoSelecionada, List<ItemContato> itens)
         {
@@ -58,12 +57,12 @@ namespace EAgenda.Infra.Arquivos
                 contatoSelecionada.AdicionarItem(item);
             }
 
-            serializador.GravarContatosEmArquivo(contatos);
+            serializador.GravarDadosEmArquivo(dataContext);
         }
         public void Atualizar(Contato contatoSelecionada,
             List<ItemContato> itensConcluidos, List<ItemContato> itensPendentes)
         {
-            serializador.GravarContatosEmArquivo(contatos);
+            serializador.GravarDadosEmArquivo(dataContext);
         }
     }
 }

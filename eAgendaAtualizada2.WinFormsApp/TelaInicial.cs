@@ -1,15 +1,27 @@
-﻿using System;
+﻿using EAgenda.Dominio;
+using EAgenda.Infra.Arquivos;
+using EAgenda.Infra.Arquivos.SerializacaoEmJson;
+using System;
 using System.Windows.Forms;
 
 namespace EAgenda.WinApp
 {
     public partial class TelaInicial : Form
     {
+        private IRepositorioTarefa repositorioTarefa;
+        private IRepositorioContato repositorioContato;
+
         public TelaInicial()
         {
             InitializeComponent();
 
-            //Iserializador
+            ISerializador serializador = new SerializadorDadosEmJsonDotnet();
+
+            DataContext contextoDados = new DataContext();
+
+            repositorioTarefa = new RepositorioTarefaEmArquivo(serializador, contextoDados);
+
+            repositorioContato = new RepositorioContatoEmArquivo(serializador, contextoDados);
         }
 
         private void btnTarefas_Click(object sender, EventArgs e)
